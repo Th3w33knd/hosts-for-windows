@@ -131,17 +131,25 @@ This document is for the maintainer of this repository. It outlines the project 
 
 ### One-Time Setup on a New Machine
 
-If you set up this project on a new computer, you need to tell your local Git repository where the original "upstream" project is.
+As the maintainer, you need a **full clone** of the repository to manage its history. **Do not use the `--depth 1` flag.**
 
-```cmd
-# Navigate to the project folder
-cd hosts-for-windows
+1. Open a terminal and run the full clone command:
 
-# Add a remote named 'upstream' pointing to the original repo
-git remote add upstream https://github.com/StevenBlack/hosts.git
-```
+    ```cmd
+    git clone https://github.com/Th3w33knd/hosts-for-windows.git
+    ```
 
----
+2. Navigate into the folder:
+
+    ```cmd
+    cd hosts-for-windows
+    ```
+
+3. Add a remote named `upstream` pointing to the original repo:
+
+    ```cmd
+    git remote add upstream https://github.com/StevenBlack/hosts.git
+    ```
 
 ## The Maintenance Workflow
 
