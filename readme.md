@@ -12,6 +12,16 @@ This fork is pre-configured with a script that handles everything for you.
 * **Clean Environment:** Uses [Pixi](https://pixi.sh/) to manage the Python environment, keeping your system clean.
 * **Pre-configured:** Comes ready to block adware, malware, fake news, and gambling sites by default.
 
+### Do You Already Have a Custom Hosts File?
+
+This project is perfect for you. The biggest challenge with a manual `hosts` file is keeping it updated with the thousands of new ad and malware domains that appear daily, without losing your own custom entries.
+
+This automated system solves that problem:
+
+* **Keep Your Custom Rules:** You simply copy your existing custom domains into the `blacklist` and `whitelist` files.
+* **Get Automatic Updates:** When you run the script, it merges your personal lists with the massive, professionally maintained blocklists from the Steven Black project.
+* **The Best of Both Worlds:** You get comprehensive, up-to-date protection without ever losing your personal customizations.
+
 ---
 
 ## Getting Started
@@ -19,6 +29,8 @@ This fork is pre-configured with a script that handles everything for you.
 Follow these simple steps to get set up.
 
 ### Prerequisites (One-Time Install)
+
+My prefred way to install is to use a package manager like [UnigetUI](https://github.com/marticliment/UniGetUI) and install then Git (Package ID: prefix-dev.pixi) and Pixi (Package ID: prefix-dev.pixi) so that you can easily update these later on. Or you may use the traditional way.
 
 1. **Install Git:** Go to [git-scm.com/download/win](https://git-scm.com/download/win) and run the installer. The default options are fine.
 2. **Install Pixi:** Go to [pixi.sh](https://pixi.sh/latest/) and follow the installation instructions for Windows.
