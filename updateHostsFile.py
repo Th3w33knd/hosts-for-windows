@@ -1449,15 +1449,22 @@ def move_hosts_file_into_place(finalfile):
         except Exception:
             print_failure(f"Replacing content of {target_file} failed.")
             return False
-    elif (
-        platform.system() == "Linux"
-        or platform.system() == "Windows"
-        or platform.system() == "Darwin"
-    ):
+    elif platform.system() == "Windows":
+        print(f"Attempting to copy generated hosts file to {target_file}")
+        try:
+            # Since we are running the script as an Admin, we can just copy the file directly.
+            shutil.copy(filename, target_file)
+            print_success(f"Successfully replaced {target_file}")
+            return True
+        except Exception as e:
+            print_failure(f"Replacing {target_file} failed. Error: {e}")
+            return False
+    elif platform.system() == "Linux" or platform.system() == "Darwin":
         print(
             f"Replacing {target_file} requires root privileges. You might need to enter your password."
         )
         try:
+            # This is the original logic for Linux/Mac, which is fine.
             subprocess.run(SUDO + ["cp", filename, target_file], check=True)
             return True
         except subprocess.CalledProcessError:
