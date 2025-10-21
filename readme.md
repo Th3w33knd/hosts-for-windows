@@ -66,21 +66,53 @@ The script will automatically handle everything: it will ask for Administrator p
 
 ### How to Customize Your Blocklists
 
-The first time you run the `Update-Hosts-USER.ps1` script, it will automatically create two files for you: `blacklist` and `whitelist`.
+The power of this project is that you can easily merge your own personal blocking rules with the main, professionally maintained lists.
 
-* **To block additional sites:** Open the `blacklist` file with any text editor and add domains in this format, one per line:
+The first time you run the `Update-Hosts-USER.ps1` script, it will automatically create two essential files for you: `blacklist` and `whitelist`. These are your personal control files.
 
-    ```
-    0.0.0.0 some-annoying-site.com
-    ```
+**Important Note on File Names:** Your custom domains go into files named exactly `blacklist` and `whitelist`. The files ending in `.example` (`blacklist.example` and `whitelist.example`) are just the templates used by the script to create your personal files. **You should only edit the files *without* the `.example` ending.**
 
-* **To unblock a site:** Open the `whitelist` file and add just the domain name, one per line:
+---
 
-    ```
-    a-site-i-need.com
-    ```
+#### The `blacklist` File (To Block More Sites)
 
-Your changes in these files are personal and will be automatically applied every time you run the update script.
+Use this file to block any additional websites or domains that aren't covered by the main lists. This is perfect for blocking distracting websites, ad servers you've identified, or any other domain you don't want your computer to connect to.
+
+**Format:** You must use the standard hosts file format: `0.0.0.0` followed by a space and the domain name.
+
+**Example `blacklist` file:**
+
+```
+
+# My personal list of distractions
+
+0.0.0.0 some-annoying-news-site.com
+0.0.0.0 another-time-waster.net
+0.0.0.0 shopping-site-i-should-avoid.org
+
+```
+
+---
+
+#### The `whitelist` File (To Unblock Sites)
+
+Use this file to **prevent** specific domains from being blocked. This is crucial if a main list accidentally blocks a site you need for work, school, or personal use. Any domain you add here will be removed from the final blocklist.
+
+**Format:** Just the domain name, one per line. **Do not** add `0.0.0.0` or any other IP address.
+
+**Example `whitelist` file:**
+
+```
+
+# Domains I need access to for work
+
+a-site-i-need.com
+analytics.work-tool.com
+short.link.service
+
+```
+
+Your changes in these two files will be automatically applied every time you run the update script, giving you the best of both worlds: professional, up-to-date protection combined with your own personal control.
 
 ---
 
