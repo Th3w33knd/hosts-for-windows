@@ -1,6 +1,8 @@
 .idea
 *.iml
 myhosts
+blacklist
+whitelist
 hosts-*
 /web.config
 /__pycache__
